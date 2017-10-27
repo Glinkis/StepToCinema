@@ -12,318 +12,317 @@
 //////////////////////////////////////////////////////////////////////////
 namespace melange
 {
+    NodeData *AllocAlienObjectData(Int32 id, Bool &known);
+    NodeData *AllocAlienTagData(Int32 id, Bool &known);
 
-NodeData *AllocAlienObjectData(Int32 id, Bool &known);
-NodeData *AllocAlienTagData(Int32 id, Bool &known);
+    //definition of self defined element classes  (spline,null,camera,light etc.) derived from C4D classes
 
-//definition of self defined element classes  (spline,null,camera,light etc.) derived from C4D classes
+    class AlienBaseDocument : public BaseDocument
+    {
+    public:
+        virtual Bool Execute();
+    };
 
-class AlienBaseDocument : public BaseDocument
-{
-public:
-	virtual Bool Execute();
-};
+    //object list/root (list which contains all scene objects)
+    class AlienRootObject : public RootObject
+    {
+    public:
 
-//object list/root (list which contains all scene objects)
-class AlienRootObject : public RootObject
-{
-public:
+        virtual BaseObject *AllocObject(Int32 id);
+    };
 
-	virtual BaseObject *AllocObject(Int32 id);
-};
+    //layer list/root (list which contains all scene layers)
+    class AlienRootLayer : public RootLayer
+    {
+        INSTANCEOF(AlienRootLayer, RootLayer)
 
-//layer list/root (list which contains all scene layers)
-class AlienRootLayer : public RootLayer
-{
-	INSTANCEOF(AlienRootLayer, RootLayer)
+    public:
 
-public:
+        virtual LayerObject *AllocObject();
+    };
 
-	virtual LayerObject *AllocObject();
-};
+    //material list/root (list which contains all scene materials)
+    class AlienRootMaterial : public RootMaterial
+    {
+        INSTANCEOF(AlienRootMaterial, RootMaterial);
 
-//material list/root (list which contains all scene materials)
-class AlienRootMaterial : public RootMaterial
-{
-	INSTANCEOF(AlienRootMaterial, RootMaterial);
+    public:
 
-public:
+        virtual BaseMaterial *AllocObject(Int32 Mtype);
+    };
 
-	virtual BaseMaterial *AllocObject(Int32 Mtype);
-};
+    class AlienRootRenderData : public RootRenderData
+    {
+        INSTANCEOF(AlienRootRenderData, RootRenderData)
 
-class AlienRootRenderData : public RootRenderData
-{
-	INSTANCEOF(AlienRootRenderData, RootRenderData)
+    public:
 
-public:
+        virtual RenderData *AllocObject();
+    };
 
-	virtual RenderData *AllocObject();
-};
+    //self defined layer with own functions and members
+    class AlienLayer : public LayerObject
+    {
+        INSTANCEOF(AlienLayer, LayerObject)
 
-//self defined layer with own functions and members
-class AlienLayer : public LayerObject
-{
-	INSTANCEOF(AlienLayer, LayerObject)
+    public:
 
-public:
+        Int32 layId;
 
-	Int32 layId;
+        AlienLayer() : LayerObject() {}
+        virtual Bool Execute();
+    };
 
-	AlienLayer() : LayerObject() { }
-	virtual Bool Execute();
-};
+    //self defined null object data with own functions and members
+    class AlienNullObjectData : public NodeData
+    {
+        INSTANCEOF(AlienNullObjectData, NodeData)
 
-//self defined null object data with own functions and members
-class AlienNullObjectData : public NodeData
-{
-	INSTANCEOF(AlienNullObjectData, NodeData)
+    public:
 
-public:
+        virtual Bool Execute();
+    };
 
-	virtual Bool Execute();
-};
+    //self defined foreground object data with own functions and members
+    class AlienForegroundObjectData : public NodeData
+    {
+        INSTANCEOF(AlienForegroundObjectData, NodeData)
 
-//self defined foreground object data with own functions and members
-class AlienForegroundObjectData : public NodeData
-{
-	INSTANCEOF(AlienForegroundObjectData, NodeData)
+    public:
 
-public:
+        virtual Bool Execute();
+    };
 
-	virtual Bool Execute();
-};
+    //self defined background object data with own functions and members
+    class AlienBackgroundObjectData : public NodeData
+    {
+        INSTANCEOF(AlienBackgroundObjectData, NodeData)
 
-//self defined background object data with own functions and members
-class AlienBackgroundObjectData : public NodeData
-{
-	INSTANCEOF(AlienBackgroundObjectData, NodeData)
+    public:
 
-public:
+        virtual Bool Execute();
+    };
 
-	virtual Bool Execute();
-};
+    //self defined Floor object data with own functions and members
+    class AlienFloorObjectData : public NodeData
+    {
+        INSTANCEOF(AlienFloorObjectData, NodeData)
 
-//self defined Floor object data with own functions and members
-class AlienFloorObjectData : public NodeData
-{
-	INSTANCEOF(AlienFloorObjectData, NodeData)
+    public:
 
-public:
+        virtual Bool Execute();
+    };
 
-	virtual Bool Execute();
-};
+    //self defined Sky object data with own functions and members
+    class AlienSkyObjectData : public NodeData
+    {
+        INSTANCEOF(AlienSkyObjectData, NodeData)
 
-//self defined Sky object data with own functions and members
-class AlienSkyObjectData : public NodeData
-{
-	INSTANCEOF(AlienSkyObjectData, NodeData)
+    public:
 
-public:
+        virtual Bool Execute();
+    };
 
-	virtual Bool Execute();
-};
+    //self defined Environment object data with own functions and members
+    class AlienEnvironmentObjectData : public NodeData
+    {
+        INSTANCEOF(AlienEnvironmentObjectData, NodeData)
 
-//self defined Environment object data with own functions and members
-class AlienEnvironmentObjectData : public NodeData
-{
-	INSTANCEOF(AlienEnvironmentObjectData, NodeData)
+    public:
 
-public:
+        virtual Bool Execute();
+    };
 
-	virtual Bool Execute();
-};
+    //self defined polygon object data with own functions and members
+    class AlienFFDObjectData : public PointObjectData
+    {
+        INSTANCEOF(AlienFFDObjectData, PointObjectData)
 
-//self defined polygon object data with own functions and members
-class AlienFFDObjectData : public PointObjectData
-{
-	INSTANCEOF(AlienFFDObjectData, PointObjectData)
+    public:
+        virtual Bool Execute();
+    };
 
-public:
-	virtual Bool Execute();
-};
+    //self defined polygon object data with own functions and members
+    class AlienPolygonObjectData : public PolygonObjectData
+    {
+        INSTANCEOF(AlienPolygonObjectData, PolygonObjectData)
 
-//self defined polygon object data with own functions and members
-class AlienPolygonObjectData : public PolygonObjectData
-{
-	INSTANCEOF(AlienPolygonObjectData, PolygonObjectData)
+    public:
+        Int32 layid;
+        Int32 matid;
+        virtual Bool Execute();
+    };
 
-public:
-	Int32 layid;
-	Int32 matid;
-	virtual Bool Execute();
-};
+    //self defined camera object data with own functions and members
+    class AlienCameraObjectData : public CameraObjectData
+    {
+        INSTANCEOF(AlienCameraObjectData, CameraObjectData)
 
-//self defined camera object data with own functions and members
-class AlienCameraObjectData : public CameraObjectData
-{
-	INSTANCEOF(AlienCameraObjectData, CameraObjectData)
+    public:
+        float horizontalFieldOfView;
 
-public:
-	float horizontalFieldOfView;
+        virtual Bool Execute();
+    };
 
-	virtual Bool Execute();
-};
+    //self defined primitive object data with own functions and members
+    class AlienPrimitiveObjectData : public NodeData
+    {
+        INSTANCEOF(AlienPrimitiveObjectData, NodeData)
 
-//self defined primitive object data with own functions and members
-class AlienPrimitiveObjectData : public NodeData
-{
-	INSTANCEOF(AlienPrimitiveObjectData, NodeData)
+            Int32 type_id;
+    public:
+        AlienPrimitiveObjectData(Int32 id) : type_id(id) {}
+        virtual Bool Execute();
+    };
 
-	Int32 type_id;
-public:
-	AlienPrimitiveObjectData(Int32 id) : type_id(id) {}
-	virtual Bool Execute();
-};
+    //self defined spline object with own functions and members
+    class AlienSplineObject : public SplineObject
+    {
+        INSTANCEOF(AlienSplineObject, SplineObject)
 
-//self defined spline object with own functions and members
-class AlienSplineObject : public SplineObject
-{
-	INSTANCEOF(AlienSplineObject, SplineObject)
+    public:
 
-public:
+        virtual Bool Execute();
+    };
 
-	virtual Bool Execute();
-};
+    //self defined light object data with own functions and members
+    class AlienLightObjectData : public LightObjectData
+    {
+        INSTANCEOF(AlienLightObjectData, LightObjectData)
 
-//self defined light object data with own functions and members
-class AlienLightObjectData : public LightObjectData
-{
-	INSTANCEOF(AlienLightObjectData, LightObjectData)
+    public:
 
-public:
+        virtual Bool Execute();
+    };
 
-	virtual Bool Execute();
-};
+    //self defined instance object data with own functions and members
+    class AlienInstanceObjectData : public NodeData
+    {
+        INSTANCEOF(AlienInstanceObjectData, NodeData)
 
-//self defined instance object data with own functions and members
-class AlienInstanceObjectData : public NodeData
-{
-	INSTANCEOF(AlienInstanceObjectData, NodeData)
+    public:
 
-public:
+        virtual Bool Execute();
+    };
 
-	virtual Bool Execute();
-};
+    //self defined xref object data with own functions and members
+    class AlienXRefObjectData : public NodeData
+    {
+        INSTANCEOF(AlienXRefObjectData, NodeData)
 
-//self defined xref object data with own functions and members
-class AlienXRefObjectData : public NodeData
-{
-	INSTANCEOF(AlienXRefObjectData, NodeData)
+    public:
 
-public:
+        virtual Bool Execute();
+    };
 
-	virtual Bool Execute();
-};
+    //self defined boolean object data with own functions and members
+    class AlienBoolObjectData : public NodeData
+    {
+        INSTANCEOF(AlienBoolObjectData, NodeData)
 
-//self defined boolean object data with own functions and members
-class AlienBoolObjectData : public NodeData
-{
-	INSTANCEOF(AlienBoolObjectData, NodeData)
+    public:
 
-public:
+        virtual Bool Execute();
+    };
 
-	virtual Bool Execute();
-};
+    //self defined instance object data with own functions and members
+    class AlienExtrudeObjectData : public NodeData
+    {
+        INSTANCEOF(AlienExtrudeObjectData, NodeData)
 
-//self defined instance object data with own functions and members
-class AlienExtrudeObjectData : public NodeData
-{
-	INSTANCEOF(AlienExtrudeObjectData, NodeData)
+    public:
 
-public:
+        virtual Bool Execute();
+    };
 
-	virtual Bool Execute();
-};
+    //self defined deformer object data with own functions and members
+    class AlienDeformerObjectData : public NodeData
+    {
+        INSTANCEOF(AlienDeformerObjectData, NodeData)
 
-//self defined deformer object data with own functions and members
-class AlienDeformerObjectData : public NodeData
-{
-	INSTANCEOF(AlienDeformerObjectData, NodeData)
+            Int32 deformer_id;
 
-	Int32 deformer_id;
+    public:
+        AlienDeformerObjectData(Int32 id) : deformer_id(id) {}
+        Int32 GetDeformerType()
+        {
+            return deformer_id;
+        };
+        virtual Bool Execute();
+    };
 
-public:
-	AlienDeformerObjectData(Int32 id) : deformer_id(id) {}
-	Int32 GetDeformerType()
-	{
-		return deformer_id;
-	};
-	virtual Bool Execute();
-};
+    //self defined Sky shader object data with own functions and members
+    class AlienSkyShaderObjectData : public SkyShaderObjectData
+    {
+        INSTANCEOF(AlienSkyShaderObjectData, SkyShaderObjectData)
 
-//self defined Sky shader object data with own functions and members
-class AlienSkyShaderObjectData : public SkyShaderObjectData
-{
-	INSTANCEOF(AlienSkyShaderObjectData, SkyShaderObjectData)
+    public:
 
-public:
+        virtual Bool Execute();
+    };
 
-	virtual Bool Execute();
-};
+    //self defined CAJoint object data with own functions and members
+    class AlienCAJointObjectData : public JointObjectData
+    {
+        INSTANCEOF(AlienCAJointObjectData, JointObjectData)
 
-//self defined CAJoint object data with own functions and members
-class AlienCAJointObjectData : public JointObjectData
-{
-	INSTANCEOF(AlienCAJointObjectData, JointObjectData)
+    public:
 
-public:
+        virtual Bool Execute();
+    };
 
-	virtual Bool Execute();
-};
+    //self defined CAJoint object data with own functions and members
+    class AlienCASkinObjectData : public SkinObjectData
+    {
+        INSTANCEOF(AlienCASkinObjectData, SkinObjectData)
 
-//self defined CAJoint object data with own functions and members
-class AlienCASkinObjectData : public SkinObjectData
-{
-	INSTANCEOF(AlienCASkinObjectData, SkinObjectData)
+    public:
 
-public:
+        virtual Bool Execute();
+    };
 
-	virtual Bool Execute();
-};
+    //self defined material with own functions and members
+    class AlienMaterial : public Material
+    {
+        INSTANCEOF(AlienMaterial, Material)
 
-//self defined material with own functions and members
-class AlienMaterial : public Material
-{
-	INSTANCEOF(AlienMaterial, Material)
+    public:
 
-public:
+        Int32 matId;
 
-	Int32 matId;
+        AlienMaterial() : Material()
+        {
+            matId = 0;
+        }
+        virtual Bool Execute();
+    };
 
-	AlienMaterial() : Material()
-	{
-		matId = 0;
-	}
-	virtual Bool Execute();
-};
+    //self defined material with own functions and members
+    class AlienBaseMaterial : public BaseMaterial
+    {
+        INSTANCEOF(AlienBaseMaterial, BaseMaterial)
 
-//self defined material with own functions and members
-class AlienBaseMaterial : public BaseMaterial
-{
-	INSTANCEOF(AlienBaseMaterial, BaseMaterial)
+    public:
 
-public:
+        Int32 matId;
 
-	Int32 matId;
+        AlienBaseMaterial(Int32 typeID)
+        {
+            SetID(typeID);
+            matId = 0;
+        }
+        virtual Bool Execute();
+    };
 
-	AlienBaseMaterial(Int32 typeID)
-	{
-		SetID(typeID);
-		matId = 0;
-	}
-	virtual Bool Execute();
-};
+    //self defined renderdata with own functions and members
+    class AlienRenderData : public RenderData
+    {
+        INSTANCEOF(AlienRenderData, RenderData)
 
-//self defined renderdata with own functions and members
-class AlienRenderData : public RenderData
-{
-	INSTANCEOF(AlienRenderData, RenderData)
+    public:
 
-public:
-
-	AlienRenderData() : RenderData() { }
-};
+        AlienRenderData() : RenderData() {}
+    };
 }
 
 #endif // ALIEN_DEF_H__
