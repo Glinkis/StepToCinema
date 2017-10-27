@@ -4,8 +4,8 @@
 // (c) MAXON Computer GmbH, all rights reserved            //
 /////////////////////////////////////////////////////////////
 
-#ifndef STEPTOCINEMA_H__
-#define STEPTOCINEMA_H__
+#ifndef STEP_TO_CINEMA_H__
+#define STEP_TO_CINEMA_H__
 
 // the file "alien_def.h" contains the "alien" classes you can define by yourself
 // in these classes you can store your own additional data and
@@ -18,4 +18,4 @@
 #include <stdio.h>
 #include "c4d.h"
 
-#endif // STEPTOCINEMA_H__
+#endif // STEP_TO_CINEMA_H__

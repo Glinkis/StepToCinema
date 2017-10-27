@@ -5,8 +5,8 @@
 /////////////////////////////////////////////////////////////
 
 #include "StepToCinema.h"
+#include "definitions\applicationIdDefinitions.h"
 
-// here you should use the melange namespace
 using namespace melange;
 
 // global temporary variables for this export example of c4d scene file
@@ -26,26 +26,6 @@ void GetWriterInfo(Int32 &id, String &appname)
     id = 1040064;
     appname = "StepToCinema";
 }
-
-//////////////////////////////////////////////////////////////////////////
-// know application IDs
-
-// Vectorworks
-#define MELANGE_APPLICATION_ID_VECTORWORKS 310003000
-
-// Allplan
-#define MELANGE_APPLICATION_ID_ALLPLAN 1026284
-#define AllplanElementID 1021906 // (deprecated)
-#define AllplanAllrightID 1021912 // (deprecated)
-
-// ArchiCAD
-#define MELANGE_APPLICATION_ID_ARCHICAD_18 1032064; // ArchiCAD 18 and above
-#define MELANGE_APPLICATION_ID_ARCHICAD 1026292 // ArchiCAD 17 and before
-#define MELANGE_APPLICATION_ID_ARCHICAD_EX 2886976735 // (deprecated)
-#define MELANGE_ID_ISARCHICAD 465001600 // Bool (deprecated)
-#define MELANGE_ID_ARCHICADNAME 465001601 // String (deprecated)
-
-//////////////////////////////////////////////////////////////////////////
 
 // print UIDs for all existing application IDs
 static void PrintUniqueIDs(BaseList2D *op)
