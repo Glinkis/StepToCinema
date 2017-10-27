@@ -5,7 +5,6 @@
 /////////////////////////////////////////////////////////////
 
 #include "StepToCinema.h"
-#include "definitions\applicationIdDefinitions.h"
 
 using namespace melange;
 

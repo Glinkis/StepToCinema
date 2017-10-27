@@ -14,6 +14,7 @@
 // which will be called by CreateSceneFromC4D() after successful loading of the scene
 // this makes it easy for you to transform a whole c4d scene to your own 3d object types
 #include "melange/melangeAlienDef.h"
+#include "definitions\applicationIdDefinitions.h"
 
 // include needed standard and cinema definitions
 #include <stdio.h>
