@@ -10,7 +10,7 @@
 using namespace melange;
 
 // global temporary variables for this export example of c4d scene file
-BaseDocument* myInternalDoc = nullptr;	// pointer to the imported C4D document use to demonstrate the export, this should your own type of document
+BaseDocument* myInternalDoc = nullptr;	// pointer to the imported C4D document use to demonstrate the export, this should be your own type of document
 Int32 tempLayID = 0; // also only for demonstration purposes, used to enumerate IDs and to assign as Layer IDs
 Int32 tempmatid = 0; // also only for demonstration purposes, used to enumerate IDs and to assign as Material IDs
 

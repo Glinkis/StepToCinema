@@ -68,7 +68,7 @@
     <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug MD|x64'">$(SolutionDir)bin</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug MD|x64'">$(SolutionDir)bin\__obj</IntDir>
-    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug MD|x64'">true</LinkIncremental>    
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug MD|x64'">true</LinkIncremental>
     <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug MT|x64'">$(SolutionDir)bin</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug MT|x64'">$(SolutionDir)bin\__obj</IntDir>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug MT|x64'">true</LinkIncremental>
