@@ -35,7 +35,7 @@ static void PrintUniqueIDs(BaseList2D *op)
     for (i = 0; i < cnt; i++)
     {
         Int32 appid;
-        Int		bytes;
+        Int	bytes;
         const Char *mem;
         if (op->GetUniqueIDIndex(i, appid, mem, bytes))
         {
