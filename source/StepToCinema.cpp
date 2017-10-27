@@ -17,37 +17,37 @@ Int32 tempmatid = 0;									// also only for demonstration purposes, used to en
 // memory allocation functions inside melange namespace (if you have your own memory management you can overload these functions)
 namespace melange
 {
-// alloc memory no clear
-void *MemAllocNC(Int size)
-{
-	void *mem = malloc(size);
-	return mem;
-}
+    // alloc memory no clear
+    void *MemAllocNC(Int size)
+    {
+        void *mem = malloc(size);
+        return mem;
+    }
 
-// alloc memory set to 0
-void *MemAlloc(Int size)
-{
-	void *mem = MemAllocNC(size);
-	memset(mem, 0, size);
-	return mem;
-}
+    // alloc memory set to 0
+    void *MemAlloc(Int size)
+    {
+        void *mem = MemAllocNC(size);
+        memset(mem, 0, size);
+        return mem;
+    }
 
-// realloc existing memory
-void *MemRealloc(void* orimem, Int size)
-{
-	void *mem = realloc(orimem, size);
-	return mem;
-}
+    // realloc existing memory
+    void *MemRealloc(void* orimem, Int size)
+    {
+        void *mem = realloc(orimem, size);
+        return mem;
+    }
 
-// free memory and set pointer to null
-void MemFree(void *&mem)
-{
-	if (!mem)
-		return;
+    // free memory and set pointer to null
+    void MemFree(void *&mem)
+    {
+        if (!mem)
+            return;
 
-	free(mem);
-	mem = nullptr;
-}
+        free(mem);
+        mem = nullptr;
+    }
 }
 
 // overload this function and fill in your own unique data
@@ -67,19 +67,19 @@ void GetWriterInfo(Int32 &id, String &appname)
 // know application IDs
 
 // Vectorworks
-#define MELANGE_APPLICATION_ID_VECTORWORKS	310003000
+#define MELANGE_APPLICATION_ID_VECTORWORKS 310003000
 
 // Allplan
-#define MELANGE_APPLICATION_ID_ALLPLAN			1026284
-#define AllplanElementID										1021906	// (deprecated)
-#define AllplanAllrightID										1021912	// (deprecated)
+#define MELANGE_APPLICATION_ID_ALLPLAN 1026284
+#define AllplanElementID 1021906 // (deprecated)
+#define AllplanAllrightID 1021912 // (deprecated)
 
 // ArchiCAD
-#define MELANGE_APPLICATION_ID_ARCHICAD_18	1032064;		// ArchiCAD 18 and above
-#define MELANGE_APPLICATION_ID_ARCHICAD			1026292			// ArchiCAD 17 and before
-#define MELANGE_APPLICATION_ID_ARCHICAD_EX	2886976735	// (deprecated)
-#define MELANGE_ID_ISARCHICAD								465001600		// Bool		(deprecated)
-#define MELANGE_ID_ARCHICADNAME							465001601		// String (deprecated)
+#define MELANGE_APPLICATION_ID_ARCHICAD_18 1032064; // ArchiCAD 18 and above
+#define MELANGE_APPLICATION_ID_ARCHICAD 1026292 // ArchiCAD 17 and before
+#define MELANGE_APPLICATION_ID_ARCHICAD_EX 2886976735 // (deprecated)
+#define MELANGE_ID_ISARCHICAD 465001600 // Bool (deprecated)
+#define MELANGE_ID_ARCHICADNAME 465001601 // String (deprecated)
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -137,15 +137,19 @@ static void PrintUniqueIDs(BaseList2D *op)
 
 static void PrintUniqueIDs(NodeData *op)
 {
-	if (op)
-		PrintUniqueIDs(op->GetNode());
+    if (op)
+    {
+        PrintUniqueIDs(op->GetNode());
+    }
 }
 
 // prints tag infos to the console
 static void PrintTagInfo(BaseObject *obj)
 {
 	if (!obj)
-		return;
+    {
+        return;
+    }
 
 	char *pChar = nullptr, buffer[256];
 	GeData data;
@@ -610,7 +614,9 @@ static void PrintShaderInfo(BaseShader *shader, Int32 depth = 0)
 static void PrintRenderDataInfo(RenderData *rdata)
 {
 	if (!rdata)
-		return;
+    {
+        return;
+    }
 
 	printf("\n\n # Render Data #\n");
 
@@ -651,11 +657,15 @@ static void PrintRenderDataInfo(RenderData *rdata)
 					printf("   + Save Image - %s\n", pChar);
 					DeleteMem(pChar);
 				}
-				else
-					printf("   + Save Image\n");
+                else
+                {
+                    printf("   + Save Image\n");
+                }
 			}
 			else
-				printf("   + Save Image\n");
+            {
+                printf("   + Save Image\n");
+            }
 		}
 		// save options: alpha, straight alpha, separate alpha, dithering, sound
 		if (rdata->GetParameter(RDATA_ALPHACHANNEL, data) && data.GetInt32())
@@ -670,7 +680,9 @@ static void PrintRenderDataInfo(RenderData *rdata)
 			printf("   + Include Sound\n");
 	}
 	else
-		printf(" - Global Save = false\n");
+    {
+        printf(" - Global Save = false\n");
+    }
 
 	// multi pass enabled ?
 	if (rdata->GetParameter(RDATA_MULTIPASS_ENABLE, data) && data.GetInt32())
@@ -687,10 +699,14 @@ static void PrintRenderDataInfo(RenderData *rdata)
 					DeleteMem(pChar);
 				}
 				else
-					printf("   + Save Multi pass Image\n");
+                {
+                    printf("   + Save Multi pass Image\n");
+                }
 			}
 			else
-				printf("   + Save Multi pass Image\n");
+            {
+                printf("   + Save Multi pass Image\n");
+            }
 		}
 
 		if (rdata->GetParameter(RDATA_MULTIPASS_STRAIGHTALPHA, data) && data.GetInt32())
@@ -707,7 +723,9 @@ static void PrintRenderDataInfo(RenderData *rdata)
 					if (data.GetInt32() == VPBUFFER_OBJECTBUFFER)
 					{
 						if (mobj->GetParameter(MULTIPASSOBJECT_OBJECTBUFFER, data))
-							printf(" Group ID %d", (int)data.GetInt32());
+                        {
+                            printf(" Group ID %d", (int)data.GetInt32());
+                        }
 					}
 
 					printf("\n");
@@ -719,7 +737,9 @@ static void PrintRenderDataInfo(RenderData *rdata)
 	// print out enabled post effects
 	BaseVideoPost *vp = rdata->GetFirstVideoPost();
 	if (vp)
-		printf( " - VideoPostEffects:\n");
+    {
+        printf( " - VideoPostEffects:\n");
+    }
 	while (vp)
 	{
 		// enabled / disabled ?
@@ -862,7 +882,9 @@ static void PrintAnimInfo(BaseList2D *bl)
 			DeleteMem(pChar);
 		}
 		else
-			printf("\n   %d. CTrack !\n", (int)++tn);
+        {
+            printf("\n   %d. CTrack !\n", (int)++tn);
+        }
 
 		// time track
 		CTrack *tt = ct->GetTimeTrack(bl->GetDocument());
@@ -993,10 +1015,14 @@ static void PrintAnimInfo(BaseList2D *bl)
 								DeleteMem(pTargetChar);
 							}
 							else
-								printf("no target object name");
+                            {
+                                printf("no target object name");
+                            }
 						}
 						else
-							printf("no target object defined...");
+                        {
+                            printf("no target object defined...");
+                        }
 					}
 
 					printf("\n");
@@ -1234,7 +1260,9 @@ inline void mySaveProgressFunction(Int32 status, void *udata)
 static Bool LoadSaveC4DScene(const char *fn, const char *fnback)
 {
 	if (!fn)
-		return false;
+    {
+        return false;
+    }
 
 	// alloc C4D document and file
 	AlienBaseDocument *C4Ddoc = NewObj(AlienBaseDocument);
@@ -1281,24 +1309,34 @@ static Bool LoadSaveC4DScene(const char *fn, const char *fnback)
 		return false;
 	}
 	else
-		printf("\n   + identified : Cinema4D Project File\n");
+    {
+        printf("\n   + identified : Cinema4D Project File\n");
+    }
 
 	// open the file for read
 	if (C4Dfile->Open(DOC_IDENT, fn, FILEOPEN_READ))
 	{
 		// read all chunks
 		if (C4Ddoc->ReadObject(C4Dfile, true))
-			printf("\n   Read scene: SUCCEEDED (%d/%d bytes - fileversion: %d)\n", (int)C4Dfile->GetPosition(),(int)C4Dfile->GetLength(),(int)C4Dfile->GetFileVersion());
+        {
+            printf("\n   Read scene: SUCCEEDED (%d/%d bytes - fileversion: %d)\n", (int)C4Dfile->GetPosition(),(int)C4Dfile->GetLength(),(int)C4Dfile->GetFileVersion());
+        }
 		else
-			printf("\n   Read scene: FAILED (Error:%d) (%d/%d bytes - fileversion: %d)\n",(int)C4Dfile->GetError(), (int)C4Dfile->GetPosition(),(int)C4Dfile->GetLength(),(int)C4Dfile->GetFileVersion());
+        {
+            printf("\n   Read scene: FAILED (Error:%d) (%d/%d bytes - fileversion: %d)\n",(int)C4Dfile->GetError(), (int)C4Dfile->GetPosition(),(int)C4Dfile->GetLength(),(int)C4Dfile->GetFileVersion());
+        }
 	}
 	else
 	{
 		// failed to open
 		if (C4Dfile->GetError() == FILEERROR_WRONG_VALUE)
-			printf("\n   Read scene: FAILED (Error:%d)- unknown filetype or version:\n               \"%s\"\n", (int)C4Dfile->GetError(), fn);
+        {
+            printf("\n   Read scene: FAILED (Error:%d)- unknown filetype or version:\n               \"%s\"\n", (int)C4Dfile->GetError(), fn);
+        }
 		else
-			printf("\n   Read scene: FAILED (Error:%d)- Could not open file \"%s\"\n", (int)C4Dfile->GetError(), fn);
+        {
+            printf("\n   Read scene: FAILED (Error:%d)- Could not open file \"%s\"\n", (int)C4Dfile->GetError(), fn);
+        }
 
 		DeleteObj(C4Ddoc);
 		DeleteObj(C4Dfile);
@@ -1314,9 +1352,13 @@ static Bool LoadSaveC4DScene(const char *fn, const char *fnback)
 
 	// checks for existing polygon caches (the option you can find in cinema Preferences->File->Option "Save Poylgons for Melange")
 	if (C4Ddoc->HasCaches())
-		printf("   Has caches: true\n");
-	else
-		printf("   Has caches: false\n");
+    {
+        printf("   Has caches: true\n");
+    }
+    else
+    {
+        printf("   Has caches: false\n");
+    }
 
 	// calls all Execute() functions of the document (and prints scene information which is for demonstration purposes only)
 	C4Ddoc->CreateSceneFromC4D();
@@ -1411,9 +1453,13 @@ BaseMaterial *AlienRootMaterial::AllocObject(Int32 Mtype)
 	BaseMaterial *basematerial = nullptr;
 
 	if (Mtype == Mplugin)
-		basematerial = NewObj(AlienBaseMaterial, Mplugin);
+    {
+        basematerial = NewObj(AlienBaseMaterial, Mplugin);
+    }
 	else
-		basematerial = NewObj(AlienMaterial);
+    {
+        basematerial = NewObj(AlienMaterial);
+    }
 
 	return basematerial;
 }
@@ -1817,7 +1863,9 @@ Bool AlienDeformerObjectData::Execute()
 		DeleteMem(pChar);
 	}
 	else
-		printf("\n - AlienDeformerObjectData (%s): <noname>\n", GetObjectTypeName(GetDeformerType()));
+    {
+        printf("\n - AlienDeformerObjectData (%s): <noname>\n", GetObjectTypeName(GetDeformerType()));
+    }
 
 	PrintUniqueIDs(this);
 
@@ -1835,7 +1883,9 @@ Bool AlienFFDObjectData::Execute()
 		DeleteMem(pChar);
 	}
 	else
-		printf("\n - AlienFFDObjectData (%d): <noname>\n", (int)op->GetType());
+    {
+        printf("\n - AlienFFDObjectData (%d): <noname>\n", (int)op->GetType());
+    }
 
 	PrintUniqueIDs(this);
 
@@ -1853,7 +1903,9 @@ Bool AlienNullObjectData::Execute()
 		DeleteMem(pChar);
 	}
 	else
-		printf("\n - AlienNullObjectData (%d): <noname>\n", (int)op->GetType());
+    {
+        printf("\n - AlienNullObjectData (%d): <noname>\n", (int)op->GetType());
+    }
 
 	PrintUniqueIDs(this);
 
@@ -1877,7 +1929,9 @@ Bool AlienForegroundObjectData::Execute()
 		DeleteMem(pChar);
 	}
 	else
-		printf("\n - AlienForegroundObjectData (%d): <noname>\n", (int)op->GetType());
+    {
+        printf("\n - AlienForegroundObjectData (%d): <noname>\n", (int)op->GetType());
+    }
 
 	PrintUniqueIDs(this);
 
@@ -1895,7 +1949,9 @@ Bool AlienBackgroundObjectData::Execute()
 		DeleteMem(pChar);
 	}
 	else
-		printf("\n - AlienBackgroundObjectData (%d): <noname>\n", (int)op->GetType());
+    {
+        printf("\n - AlienBackgroundObjectData (%d): <noname>\n", (int)op->GetType());
+    }
 
 	PrintUniqueIDs(this);
 
@@ -1913,7 +1969,9 @@ Bool AlienFloorObjectData::Execute()
 		DeleteMem(pChar);
 	}
 	else
-		printf("\n - AlienFloorObjectData (%d): <noname>\n", (int)op->GetType());
+    {
+        printf("\n - AlienFloorObjectData (%d): <noname>\n", (int)op->GetType());
+    }
 
 	PrintUniqueIDs(this);
 
@@ -1931,7 +1989,9 @@ Bool AlienSkyObjectData::Execute()
 		DeleteMem(pChar);
 	}
 	else
-		printf("\n - AlienSkyObjectData (%d): <noname>\n", (int)op->GetType());
+    {
+        printf("\n - AlienSkyObjectData (%d): <noname>\n", (int)op->GetType());
+    }
 
 	PrintUniqueIDs(this);
 
@@ -1949,7 +2009,9 @@ Bool AlienSkyShaderObjectData::Execute()
 		DeleteMem(pChar);
 	}
 	else
-		printf("\n - AlienSkyShaderObjectData (%d): <noname>\n", (int)op->GetType());
+    {
+        printf("\n - AlienSkyShaderObjectData (%d): <noname>\n", (int)op->GetType());
+    }
 
 	PrintUniqueIDs(this);
 
@@ -1967,7 +2029,9 @@ Bool AlienCAJointObjectData::Execute()
 		DeleteMem(pChar);
 	}
 	else
-		printf("\n - AlienCAJointObjectData (%d): <noname>\n", (int)op->GetType());
+    {
+        printf("\n - AlienCAJointObjectData (%d): <noname>\n", (int)op->GetType());
+    }
 
 	PrintUniqueIDs(this);
 
@@ -1985,7 +2049,9 @@ Bool AlienCASkinObjectData::Execute()
 		DeleteMem(pChar);
 	}
 	else
-		printf("\n - AlienCASkinObjectData (%d): <noname>\n", (int)op->GetType());
+    {
+        printf("\n - AlienCASkinObjectData (%d): <noname>\n", (int)op->GetType());
+    }
 
 	PrintUniqueIDs(this);
 
@@ -2003,7 +2069,9 @@ Bool AlienEnvironmentObjectData::Execute()
 		DeleteMem(pChar);
 	}
 	else
-		printf("\n - AlienEnvironmentObjectData (%d): <noname>", (int)op->GetType());
+    {
+        printf("\n - AlienEnvironmentObjectData (%d): <noname>", (int)op->GetType());
+    }
 
 	GeData data;
 	Vector col = Vector(0.0, 0.0, 0.0);
@@ -2030,7 +2098,9 @@ Bool AlienBoolObjectData::Execute()
 		DeleteMem(pChar);
 	}
 	else
-		printf("\n - AlienBoolObjectData (%d): <noname>", (int)op->GetType());
+    {
+        printf("\n - AlienBoolObjectData (%d): <noname>", (int)op->GetType());
+    }
 
 	GeData data;
 	Int32 boolType = 0;
@@ -2075,12 +2145,16 @@ Bool AlienExtrudeObjectData::Execute()
 	GeData data;
 	Vector movement = Vector(0.0, 0.0, 0.0);
 	if (op->GetParameter(EXTRUDEOBJECT_MOVE, data))
-		movement = data.GetVector();
+    {
+        movement = data.GetVector();
+    }
 	printf("\n   - GetMovement(): %.2f / %.2f / %.2f \n", movement.x, movement.y, movement.z);
 
 	Int32 endSteps = 0;
 	if (op->GetParameter(CAP_ENDSTEPS, data))
-		endSteps = data.GetInt32();
+    {
+        endSteps = data.GetInt32();
+    }
 	printf("\n   - GetEndCapSteps(): %d \n", (int)endSteps);
 
 	PrintUniqueIDs(this);
@@ -2101,7 +2175,9 @@ Bool AlienInstanceObjectData::Execute()
 		DeleteMem(pChar);
 	}
 	else
-		printf("\n - AlienInstanceObjectData (%d): <noname>\n", (int)op->GetType());
+    {
+        printf("\n - AlienInstanceObjectData (%d): <noname>\n", (int)op->GetType());
+    }
 
 	Matrix m = op->GetMg();
 	PrintMatrix(m);
@@ -2125,7 +2201,9 @@ Bool AlienInstanceObjectData::Execute()
 			DeleteMem(pChar);
 		}
 		else
-			printf("   - Source: <noname>");
+        {
+            printf("   - Source: <noname>");
+        }
 	}
 	printf("\n");
 
