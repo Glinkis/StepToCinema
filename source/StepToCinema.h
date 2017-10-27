@@ -1,8 +1,9 @@
-/////////////////////////////////////////////////////////////
-// MELANGE SDK - command line example                      //
-/////////////////////////////////////////////////////////////
-// (c) MAXON Computer GmbH, all rights reserved            //
-/////////////////////////////////////////////////////////////
+/**
+ * StepToCinema is a file converter
+ * that converts files from the STEP
+ * (https://en.wikipedia.org/wiki/ISO_10303-21)
+ * format into Cinema4D files.
+ */
 
 #ifndef STEP_TO_CINEMA_H__
 #define STEP_TO_CINEMA_H__
