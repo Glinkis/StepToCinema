@@ -59,8 +59,8 @@ void GetWriterInfo(Int32 &id, String &appname)
 	// 	Bool FindUniqueID(Int32 appid, const Char *&mem, Int32 &bytes) const;
 	// 	Bool GetUniqueIDIndex(Int32 idx, Int32 &id, const Char *&mem, Int32 &bytes) const;
 	// 	Int32 GetUniqueIDCount() const;
-	id = 0;
-	appname = "Commandline Example";
+	id = 1040064;
+	appname = "StepToCinema";
 }
 
 //////////////////////////////////////////////////////////////////////////
