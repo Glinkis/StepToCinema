@@ -14,44 +14,6 @@ BaseDocument* myInternalDoc = nullptr;	// pointer to the imported C4D document u
 Int32 tempLayID = 0; // also only for demonstration purposes, used to enumerate IDs and to assign as Layer IDs
 Int32 tempmatid = 0; // also only for demonstration purposes, used to enumerate IDs and to assign as Material IDs
 
-// memory allocation functions inside melange namespace (if you have your own memory management you can overload these functions)
-namespace melange
-{
-    // alloc memory no clear
-    void *MemAllocNC(Int size)
-    {
-        void *mem = malloc(size);
-        return mem;
-    }
-
-    // alloc memory set to 0
-    void *MemAlloc(Int size)
-    {
-        void *mem = MemAllocNC(size);
-        memset(mem, 0, size);
-        return mem;
-    }
-
-    // realloc existing memory
-    void *MemRealloc(void* orimem, Int size)
-    {
-        void *mem = realloc(orimem, size);
-        return mem;
-    }
-
-    // free memory and set pointer to null
-    void MemFree(void *&mem)
-    {
-        if (!mem)
-        {
-            return;
-        }
-
-        free(mem);
-        mem = nullptr;
-    }
-}
-
 // overload this function and fill in your own unique data
 void GetWriterInfo(Int32 &id, String &appname)
 {

@@ -220,10 +220,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="source\alien_def.h" />
+    <ClInclude Include="source\melange\melangeAlienDef.h" />
     <ClInclude Include="source\StepToCinema.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\melange\melangeMemoryAllocation.cpp" />
     <ClCompile Include="source\StepToCinema.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
