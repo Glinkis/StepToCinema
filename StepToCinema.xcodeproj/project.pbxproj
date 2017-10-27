@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		396271FE0C2A9F6000ADDD97 /* C4DImportExport.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 396271FB0C2A9F6000ADDD97 /* C4DImportExport.cpp */; };
+		396271FE0C2A9F6000ADDD97 /* StepToCinema.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 396271FB0C2A9F6000ADDD97 /* StepToCinema.cpp */; };
 		B4DDF68D1920C0D7009845C8 /* libmelangelib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DDF68C1920C0D7009845C8 /* libmelangelib.a */; };
 		B4DDF68F1920C22C009845C8 /* libjpeglib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DDF68E1920C22C009845C8 /* libjpeglib.a */; };
 		B4DDF6BC1920C88E009845C8 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DDF6BB1920C88E009845C8 /* AppKit.framework */; };
@@ -17,8 +17,8 @@
 
 /* Begin PBXFileReference section */
 		396271FA0C2A9F6000ADDD97 /* alien_def.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = alien_def.h; path = source/alien_def.h; sourceTree = "<group>"; };
-		396271FB0C2A9F6000ADDD97 /* C4DImportExport.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = C4DImportExport.cpp; path = source/C4DImportExport.cpp; sourceTree = "<group>"; };
-		396271FC0C2A9F6000ADDD97 /* C4DImportExport.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = C4DImportExport.h; path = source/C4DImportExport.h; sourceTree = "<group>"; };
+		396271FB0C2A9F6000ADDD97 /* StepToCinema.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = StepToCinema.cpp; path = source/StepToCinema.cpp; sourceTree = "<group>"; };
+		396271FC0C2A9F6000ADDD97 /* StepToCinema.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = StepToCinema.h; path = source/StepToCinema.h; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* commandline */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = commandline; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4DDF68C1920C0D7009845C8 /* libmelangelib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmelangelib.a; path = ../../libraries/osx/debug/libmelangelib.a; sourceTree = "<group>"; };
 		B4DDF68E1920C22C009845C8 /* libjpeglib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeglib.a; path = ../../libraries/osx/release/libjpeglib.a; sourceTree = "<group>"; };
@@ -59,8 +59,8 @@
 			isa = PBXGroup;
 			children = (
 				396271FA0C2A9F6000ADDD97 /* alien_def.h */,
-				396271FB0C2A9F6000ADDD97 /* C4DImportExport.cpp */,
-				396271FC0C2A9F6000ADDD97 /* C4DImportExport.h */,
+				396271FB0C2A9F6000ADDD97 /* StepToCinema.cpp */,
+				396271FC0C2A9F6000ADDD97 /* StepToCinema.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -151,7 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				396271FE0C2A9F6000ADDD97 /* C4DImportExport.cpp in Sources */,
+				396271FE0C2A9F6000ADDD97 /* StepToCinema.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

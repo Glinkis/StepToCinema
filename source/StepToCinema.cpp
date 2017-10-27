@@ -4,7 +4,7 @@
 // (c) MAXON Computer GmbH, all rights reserved            //
 /////////////////////////////////////////////////////////////
 
-#include "C4DImportExport.h"
+#include "StepToCinema.h"
 
 // here you should use the melange namespace
 using namespace melange;
