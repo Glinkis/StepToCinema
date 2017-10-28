@@ -1059,208 +1059,59 @@ static void PrintAnimInfo(BaseList2D *bl)
     printf("\n");
 }
 
+static void printMatrixValue(Float &f)
+{
+    Int32 size = 6;
+
+    if (f == 0.0)
+        f = 0.0;
+    if (f < 0.0)
+        size--;
+    if (f >= 10.0 || f <= -10.0)
+        size--;
+    if (f >= 100.0 || f <= -100.0)
+        size--;
+    if (f >= 1000.0 || f <= -1000.0)
+        size--;
+    if (f >= 10000.0 || f <= -10000.0)
+        size--;
+
+    for (Int32 s = 0; s < size; s++)
+    {
+        printf(" ");
+    }
+}
+
+// print matrix vector to the console
+static void printMatrixVector(Vector64 vec)
+{
+    Float f = vec.x;
+    printMatrixValue(f);
+    printf("%f", f);
+
+    f = vec.y;
+    printMatrixValue(f);
+    printf("%f", f);
+
+    f = vec.z;
+    printMatrixValue(f);
+    printf("%f\n", f);
+}
+
 // print matrix data to the console
 static void PrintMatrix(Matrix m)
 {
     printf("   - Matrix:");
-    Int32 size = 6;
-    Float f = m.v1.x;
-    if (f == 0.0)
-        f = 0.0;
-    if (f < 0.0)
-        size--;
-    if (f >= 10.0 || f <= -10.0)
-        size--;
-    if (f >= 100.0 || f <= -100.0)
-        size--;
-    if (f >= 1000.0 || f <= -1000.0)
-        size--;
-    if (f >= 10000.0 || f <= -10000.0)
-        size--;
-    for (Int32 s = 0; s < size; s++) printf(" ");
-    printf("%f", f);
-    size = 6;
-    f = m.v1.y;
-    if (f == 0.0)
-        f = 0.0;
-    if (f < 0.0)
-        size--;
-    if (f >= 10.0 || f <= -10.0)
-        size--;
-    if (f >= 100.0 || f <= -100.0)
-        size--;
-    if (f >= 1000.0 || f <= -1000.0)
-        size--;
-    if (f >= 10000.0 || f <= -10000.0)
-        size--;
-    for (Int32 s = 0; s < size; s++) printf(" ");
-    printf("%f", f);
-    size = 6;
-    f = m.v1.z;
-    if (f == 0.0)
-        f = 0.0;
-    if (f < 0.0)
-        size--;
-    if (f >= 10.0 || f <= -10.0)
-        size--;
-    if (f >= 100.0 || f <= -100.0)
-        size--;
-    if (f >= 1000.0 || f <= -1000.0)
-        size--;
-    if (f >= 10000.0 || f <= -10000.0)
-        size--;
-    for (Int32 s = 0; s < size; s++) printf(" ");
-    printf("%f\n", f);
+    printMatrixVector(m.v1);
 
     printf("           :");
-    size = 6;
-    f = m.v2.x;
-    if (f == 0.0)
-        f = 0.0;
-    if (f < 0)
-        size--;
-    if (f >= 10.0 || f <= -10.0)
-        size--;
-    if (f >= 100.0 || f <= -100.0)
-        size--;
-    if (f >= 1000.0 || f <= -1000.0)
-        size--;
-    if (f >= 10000.0 || f <= -10000.0)
-        size--;
-    for (Int32 s = 0; s < size; s++) printf(" ");
-    printf("%f", f);
-    size = 6;
-    f = m.v2.y;
-    if (f == 0.0)
-        f = 0.0;
-    if (f < 0)
-        size--;
-    if (f >= 10.0 || f <= -10.0)
-        size--;
-    if (f >= 100.0 || f <= -100.0)
-        size--;
-    if (f >= 1000.0 || f <= -1000.0)
-        size--;
-    if (f >= 10000.0 || f <= -10000.0)
-        size--;
-    for (Int32 s = 0; s < size; s++) printf(" ");
-    printf("%f", f);
-    size = 6;
-    f = m.v2.z;
-    if (f == 0.0)
-        f = 0.0;
-    if (f < 0)
-        size--;
-    if (f >= 10.0 || f <= -10.0)
-        size--;
-    if (f >= 100.0 || f <= -100.0)
-        size--;
-    if (f >= 1000.0 || f <= -1000.0)
-        size--;
-    if (f >= 10000.0 || f <= -10000.0)
-        size--;
-    for (Int32 s = 0; s < size; s++) printf(" ");
-    printf("%f\n", f);
+    printMatrixVector(m.v2);
 
     printf("           :");
-    size = 6;
-    f = m.v3.x;
-    if (f == 0.0)
-        f = 0.0;
-    if (f < 0)
-        size--;
-    if (f >= 10.0 || f <= -10.0)
-        size--;
-    if (f >= 100.0 || f <= -100.0)
-        size--;
-    if (f >= 1000.0 || f <= -1000.0)
-        size--;
-    if (f >= 10000.0 || f <= -10000.0)
-        size--;
-    for (Int32 s = 0; s < size; s++) printf(" ");
-    printf("%f", f);
-    size = 6;
-    f = m.v3.y;
-    if (f == 0.0)
-        f = 0.0;
-    if (f < 0)
-        size--;
-    if (f >= 10.0 || f <= -10.0)
-        size--;
-    if (f >= 100.0 || f <= -100.0)
-        size--;
-    if (f >= 1000.0 || f <= -1000.0)
-        size--;
-    if (f >= 10000.0 || f <= -10000.0)
-        size--;
-    for (Int32 s = 0; s < size; s++) printf(" ");
-    printf("%f", f);
-    size = 6;
-    f = m.v3.z;
-    if (f == 0.0)
-        f = 0.0;
-    if (f < 0)
-        size--;
-    if (f >= 10.0 || f <= -10.0)
-        size--;
-    if (f >= 100.0 || f <= -100.0)
-        size--;
-    if (f >= 1000.0 || f <= -1000.0)
-        size--;
-    if (f >= 10000.0 || f <= -10000.0)
-        size--;
-    for (Int32 s = 0; s < size; s++) printf(" ");
-    printf("%f\n", f);
+    printMatrixVector(m.v3);
 
     printf("           :");
-    size = 6;
-    f = m.off.x;
-    if (f == 0.0)
-        f = 0.0;
-    if (f < 0)
-        size--;
-    if (f >= 10.0 || f <= -10.0)
-        size--;
-    if (f >= 100.0 || f <= -100.0)
-        size--;
-    if (f >= 1000.0 || f <= -1000.0)
-        size--;
-    if (f >= 10000.0 || f <= -10000.0)
-        size--;
-    for (Int32 s = 0; s < size; s++) printf(" ");
-    printf("%f", f);
-    size = 6;
-    f = m.off.y;
-    if (f == 0.0)
-        f = 0.0;
-    if (f < 0)
-        size--;
-    if (f >= 10.0 || f <= -10.0)
-        size--;
-    if (f >= 100.0 || f <= -100.0)
-        size--;
-    if (f >= 1000.0 || f <= -1000.0)
-        size--;
-    if (f >= 10000.0 || f <= -10000.0)
-        size--;
-    for (Int32 s = 0; s < size; s++) printf(" ");
-    printf("%f", f);
-    size = 6;
-    f = m.off.z;
-    if (f == 0.0)
-        f = 0.0;
-    if (f < 0)
-        size--;
-    if (f >= 10.0 || f <= -10.0)
-        size--;
-    if (f >= 100.0 || f <= -100.0)
-        size--;
-    if (f >= 1000.0 || f <= -1000.0)
-        size--;
-    if (f >= 10000.0 || f <= -10000.0)
-        size--;
-    for (Int32 s = 0; s < size; s++) printf(" ");
-    printf("%f\n", f);
+    printMatrixVector(m.off);
 }
 
 // example function to get the load progress
@@ -2790,7 +2641,7 @@ static Bool BuildMaterialToC4D(AlienMaterial* pOrgMat, BaseDocument* doc)
         return false;
     }
 
-    AlienMaterial	*newMaterial = nullptr;
+    AlienMaterial *newMaterial = nullptr;
 
     // Create new material
     newMaterial = NewObj(AlienMaterial);
@@ -3225,7 +3076,7 @@ int main(int argc, Char* argv[])
     if (s1 != s2)
     {
         CriticalStop();
-}
+    }
 #endif
 
     Char* versionStr = GetLibraryVersion().GetCStringCopy();
