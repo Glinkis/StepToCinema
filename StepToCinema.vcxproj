@@ -224,6 +224,7 @@
     <ClInclude Include="source\StepToCinema.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="source\melange\melangeAlienDef.cpp" />
     <ClCompile Include="source\melange\melangeMemoryAllocation.cpp" />
     <ClCompile Include="source\definitions\applicationIdDefinitions.h" />
     <ClCompile Include="source\StepToCinema.cpp" />
