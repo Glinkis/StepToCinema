@@ -1,3 +1,6 @@
+#include <iostream>
+#include <fstream>
+#include <stdio.h>
 #include "StepToCinema.h"
 #include "loadAndSaveC4D.h"
 
@@ -14,6 +17,40 @@ void GetWriterInfo(Int32 &id, String &appname)
     // 	Int32 GetUniqueIDCount() const;
     id = 1040064;
     appname = "StepToCinema";
+}
+
+Bool ConvertStepFile(const char *file, const char *output)
+{
+    if (!file)
+    {
+        return false;
+    }
+
+    printf(" - File: \"%s\"", file);
+
+    if (!GeFExist(file))
+    {
+        printf("\n   file is not existing\n   aborting...");
+        return false;
+    }
+
+    LocalFileTime mt;
+    if (GeGetFileTime(Filename(file), GE_FILETIME_CREATED, &mt))
+    {
+        printf("\n   + created    : %02d/%02d/%d", mt.month, mt.day, mt.year);
+    }
+    if (GeGetFileTime(Filename(file), GE_FILETIME_MODIFIED, &mt))
+    {
+        printf("\n   + modified   : %02d/%02d/%d", mt.month, mt.day, mt.year);
+    }
+
+    BaseDocument* c4dDoc = BaseDocument::Alloc();
+
+    // Open file, read contents, and insert stuff into the cinema scene here.
+
+    SaveDocument(c4dDoc, output, SAVEDOCUMENTFLAGS_0);
+
+    return true;
 }
 
 //////////////////////////////////////////////////////////////////////////
@@ -54,8 +91,8 @@ int main(int argc, Char* argv[])
 #else
 
     // filename for import and export C4D files
-    char *fn = "D:\\scene_IN.c4d";
-    char *fnback = "D:\\scene_OUT.c4d";
+    char *fn = "D:/Projects/StepToCinema/resources/battery.stp";
+    char *fnback = "D:/Projects/StepToCinema/resources/battery.c4d";
 
     // use string passed as argument if available
     if (argc > 1 && strlen(argv[1]) > 8)
@@ -65,14 +102,8 @@ int main(int argc, Char* argv[])
 
 #endif
 
-    // load and save a c4d scene file
-    Bool res = LoadSaveC4DScene(fn, fnback);
-    if (res && fnback)
-    {
-        // load the just saved c4d file again (testing purposes only)
-        printf("\n\n ##### ReRead saved file: \n\n");
-        LoadSaveC4DScene(fnback, nullptr);
-    }
+    // load and save the file
+    ConvertStepFile(fn, fnback);
 
     // to keep the console window open wait here for input
     char value;
