@@ -21,7 +21,7 @@ void GetWriterInfo(Int32 &id, String &appname)
 // example function to get the load progress
 inline void myLoadProgressFunction(Int32 status, void *udata)
 {
-    Int32 test = status;	// read percentage of the file (0 - 100)
+    Int32 test = status; // read percentage of the file (0 - 100)
     printf("%d", (int)test);
     printf("%%");
     printf(".");
@@ -30,7 +30,7 @@ inline void myLoadProgressFunction(Int32 status, void *udata)
 // example function to get the save progress
 inline void mySaveProgressFunction(Int32 status, void *udata)
 {
-    Int32 test = status;	// actual written file size in bytes
+    Int32 test = status; // actual written file size in bytes
     printf("%d", (int)test);
     printf(".");
 }
@@ -216,7 +216,6 @@ static Bool LoadSaveC4DScene(const char *fn, const char *fnback)
 //////////////////////////////////////////////////////////////////////////
 // EXPORT example
 // the following functions are regarding EXPORT of a C4D scene file
-
 //////////////////////////////////////////////////////////////////////////
 
 // creates a new C4D Material and set some parameters
