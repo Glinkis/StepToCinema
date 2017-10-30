@@ -103,7 +103,10 @@ static void PrintTagInfo(BaseObject *obj)
             {
                 if (btag->GetParameter(COMPOSITINGTAG_MATTECOLOR, data))
                 {
-                    printf("     + Matte - Color R %d G %d B %d", (int)(data.GetVector().x*255.0), (int)(data.GetVector().y*255.0), (int)(data.GetVector().z*255.0));
+                    printf("     + Matte - Color R %d G %d B %d",
+                       (int)(data.GetVector().x*255.0),
+                       (int)(data.GetVector().y*255.0),
+                       (int)(data.GetVector().z*255.0));
                 }
                 else
                 {

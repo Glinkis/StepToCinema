@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		396271FE0C2A9F6000ADDD97 /* StepToCinema.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 396271FB0C2A9F6000ADDD97 /* StepToCinema.cpp */; };
+		576D5A9E1FA7347F00DADC10 /* loadAndSaveC4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 576D5A9B1FA7347F00DADC10 /* loadAndSaveC4D.cpp */; };
+		576D5AA41FA734A300DADC10 /* melangeAlienDef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 576D5AA21FA734A300DADC10 /* melangeAlienDef.cpp */; };
+		576D5AA51FA734A300DADC10 /* melangeMemoryAllocation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 576D5AA31FA734A300DADC10 /* melangeMemoryAllocation.cpp */; };
 		B4DDF68D1920C0D7009845C8 /* libmelangelib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DDF68C1920C0D7009845C8 /* libmelangelib.a */; };
 		B4DDF68F1920C22C009845C8 /* libjpeglib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DDF68E1920C22C009845C8 /* libjpeglib.a */; };
 		B4DDF6BC1920C88E009845C8 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DDF6BB1920C88E009845C8 /* AppKit.framework */; };
@@ -16,9 +19,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		396271FA0C2A9F6000ADDD97 /* alien_def.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = alien_def.h; path = source/alien_def.h; sourceTree = "<group>"; };
 		396271FB0C2A9F6000ADDD97 /* StepToCinema.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; name = StepToCinema.cpp; path = source/StepToCinema.cpp; sourceTree = "<group>"; };
 		396271FC0C2A9F6000ADDD97 /* StepToCinema.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; name = StepToCinema.h; path = source/StepToCinema.h; sourceTree = "<group>"; };
+		576D5A9B1FA7347F00DADC10 /* loadAndSaveC4D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = loadAndSaveC4D.cpp; path = source/loadAndSaveC4D.cpp; sourceTree = "<group>"; };
+		576D5A9C1FA7347F00DADC10 /* loadAndSaveC4D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = loadAndSaveC4D.h; path = source/loadAndSaveC4D.h; sourceTree = "<group>"; };
+		576D5A9D1FA7347F00DADC10 /* StpTranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = StpTranslator.h; path = source/StpTranslator.h; sourceTree = "<group>"; };
+		576D5AA11FA734A300DADC10 /* melangeAlienDef.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = melangeAlienDef.h; path = source/melange/melangeAlienDef.h; sourceTree = SOURCE_ROOT; };
+		576D5AA21FA734A300DADC10 /* melangeAlienDef.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = melangeAlienDef.cpp; path = source/melange/melangeAlienDef.cpp; sourceTree = SOURCE_ROOT; };
+		576D5AA31FA734A300DADC10 /* melangeMemoryAllocation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = melangeMemoryAllocation.cpp; path = source/melange/melangeMemoryAllocation.cpp; sourceTree = SOURCE_ROOT; };
+		576D5AA71FA734BA00DADC10 /* applicationIdDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = applicationIdDefinitions.h; path = source/definitions/applicationIdDefinitions.h; sourceTree = SOURCE_ROOT; };
 		8DD76FB20486AB0100D96B5E /* commandline */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = commandline; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4DDF68C1920C0D7009845C8 /* libmelangelib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmelangelib.a; path = ../../libraries/osx/debug/libmelangelib.a; sourceTree = "<group>"; };
 		B4DDF68E1920C22C009845C8 /* libjpeglib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeglib.a; path = ../../libraries/osx/release/libjpeglib.a; sourceTree = "<group>"; };
@@ -46,8 +55,8 @@
 		08FB7794FE84155DC02AAC07 /* commandline */ = {
 			isa = PBXGroup;
 			children = (
-				B4DDF6B21920C818009845C8 /* Frameworks */,
 				B4DDF6B11920C7ED009845C8 /* libs */,
+				B4DDF6B21920C818009845C8 /* Frameworks */,
 				08FB7795FE84155DC02AAC07 /* Source */,
 				C6A0FF2B0290797F04C91782 /* Documentation */,
 				1AB674ADFE9D54B511CA2CBB /* Products */,
@@ -58,7 +67,11 @@
 		08FB7795FE84155DC02AAC07 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				396271FA0C2A9F6000ADDD97 /* alien_def.h */,
+				576D5AA61FA734AF00DADC10 /* definitions */,
+				576D5AA01FA7348B00DADC10 /* melange */,
+				576D5A9B1FA7347F00DADC10 /* loadAndSaveC4D.cpp */,
+				576D5A9C1FA7347F00DADC10 /* loadAndSaveC4D.h */,
+				576D5A9D1FA7347F00DADC10 /* StpTranslator.h */,
 				396271FB0C2A9F6000ADDD97 /* StepToCinema.cpp */,
 				396271FC0C2A9F6000ADDD97 /* StepToCinema.h */,
 			);
@@ -71,6 +84,24 @@
 				8DD76FB20486AB0100D96B5E /* commandline */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		576D5AA01FA7348B00DADC10 /* melange */ = {
+			isa = PBXGroup;
+			children = (
+				576D5AA21FA734A300DADC10 /* melangeAlienDef.cpp */,
+				576D5AA11FA734A300DADC10 /* melangeAlienDef.h */,
+				576D5AA31FA734A300DADC10 /* melangeMemoryAllocation.cpp */,
+			);
+			path = melange;
+			sourceTree = "<group>";
+		};
+		576D5AA61FA734AF00DADC10 /* definitions */ = {
+			isa = PBXGroup;
+			children = (
+				576D5AA71FA734BA00DADC10 /* applicationIdDefinitions.h */,
+			);
+			path = definitions;
 			sourceTree = "<group>";
 		};
 		B4DDF6B11920C7ED009845C8 /* libs */ = {
@@ -151,6 +182,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				576D5AA51FA734A300DADC10 /* melangeMemoryAllocation.cpp in Sources */,
+				576D5A9E1FA7347F00DADC10 /* loadAndSaveC4D.cpp in Sources */,
+				576D5AA41FA734A300DADC10 /* melangeAlienDef.cpp in Sources */,
 				396271FE0C2A9F6000ADDD97 /* StepToCinema.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
