@@ -7,8 +7,7 @@
 #ifndef ALIEN_DEF_H__
 #define ALIEN_DEF_H__
 
-#include <stdio.h>
-#include "../definitions/applicationIdDefinitions.h"
+#include "applicationIdDefinitions.h"
 #include "c4d.h"
 
 //////////////////////////////////////////////////////////////////////////

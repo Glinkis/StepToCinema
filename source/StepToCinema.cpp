@@ -1,20 +1,11 @@
-#include <iostream>
-#include <fstream>
-#include <stdio.h>
 #include "StepToCinema.h"
-#include "loadAndSaveC4D.h"
 
 using namespace melange;
 
 // overload this function and fill in your own unique data
 void GetWriterInfo(Int32 &id, String &appname)
 {
-    // register your own pluginid once for your exporter and enter it here under id
-    // this id must be used for your own unique ids
-    // 	Bool AddUniqueID(Int32 appid, const Char *const mem, Int32 bytes);
-    // 	Bool FindUniqueID(Int32 appid, const Char *&mem, Int32 &bytes) const;
-    // 	Bool GetUniqueIDIndex(Int32 idx, Int32 &id, const Char *&mem, Int32 &bytes) const;
-    // 	Int32 GetUniqueIDCount() const;
+    // unique plugin id from plugincafe
     id = 1040064;
     appname = "StepToCinema";
 }
@@ -32,16 +23,6 @@ Bool ConvertStepFile(const char *file, const char *output)
     {
         printf("\n   file is not existing\n   aborting...");
         return false;
-    }
-
-    LocalFileTime mt;
-    if (GeGetFileTime(Filename(file), GE_FILETIME_CREATED, &mt))
-    {
-        printf("\n   + created    : %02d/%02d/%d", mt.month, mt.day, mt.year);
-    }
-    if (GeGetFileTime(Filename(file), GE_FILETIME_MODIFIED, &mt))
-    {
-        printf("\n   + modified   : %02d/%02d/%d", mt.month, mt.day, mt.year);
     }
 
     BaseDocument* c4dDoc = BaseDocument::Alloc();
@@ -86,8 +67,8 @@ int main(int argc, Char* argv[])
     DeleteMem(versionStr);
 
 #ifdef __MAC
-    const char *fn = "/test.c4d";
-    const char *fnback = "/test_out.c4d";
+    const char *fn = "/Projects/Misc/StepToCinema/resources/battery.stp";
+    const char *fnback = "/Projects/Misc/StepToCinema/resources/battery.c4d";
 #else
 
     // filename for import and export C4D files
