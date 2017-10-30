@@ -10,30 +10,6 @@ void GetWriterInfo(Int32 &id, String &appname)
     appname = "StepToCinema";
 }
 
-Bool ConvertStepFile(const char *file, const char *output)
-{
-    if (!file)
-    {
-        return false;
-    }
-
-    printf(" - File: \"%s\"", file);
-
-    if (!GeFExist(file))
-    {
-        printf("\n   file is not existing\n   aborting...");
-        return false;
-    }
-
-    BaseDocument* c4dDoc = BaseDocument::Alloc();
-
-    // Open file, read contents, and insert stuff into the cinema scene here.
-
-    SaveDocument(c4dDoc, output, SAVEDOCUMENTFLAGS_0);
-
-    return true;
-}
-
 //////////////////////////////////////////////////////////////////////////
 // MAIN FUNCTION
 //////////////////////////////////////////////////////////////////////////
@@ -84,7 +60,7 @@ int main(int argc, Char* argv[])
 #endif
 
     // load and save the file
-    ConvertStepFile(fn, fnback);
+    StepConverter::ConvertStepFile(fn, fnback);
 
     // to keep the console window open wait here for input
     char value;

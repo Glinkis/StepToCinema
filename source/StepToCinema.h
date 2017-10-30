@@ -9,5 +9,6 @@
 #define STEP_TO_CINEMA_H__
 
 #include "c4d.h"
+#include "StepConverter.h"
 
 #endif // STEP_TO_CINEMA_H__
