@@ -7,8 +7,9 @@
 #ifndef ALIEN_DEF_H__
 #define ALIEN_DEF_H__
 
-#include "applicationIdDefinitions.h"
 #include "c4d.h"
+#include "applicationIdDefinitions.h"
+
 
 //////////////////////////////////////////////////////////////////////////
 namespace melange

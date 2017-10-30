@@ -10,7 +10,6 @@
 		396271FE0C2A9F6000ADDD97 /* StepToCinema.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 396271FB0C2A9F6000ADDD97 /* StepToCinema.cpp */; };
 		576D5AA41FA734A300DADC10 /* melangeAlienDef.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 576D5AA21FA734A300DADC10 /* melangeAlienDef.cpp */; };
 		576D5AA51FA734A300DADC10 /* melangeMemoryAllocation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 576D5AA31FA734A300DADC10 /* melangeMemoryAllocation.cpp */; };
-		576D5AAE1FA741B900DADC10 /* loadAndSaveC4D.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 576D5AAC1FA741B900DADC10 /* loadAndSaveC4D.cpp */; };
 		B4DDF68D1920C0D7009845C8 /* libmelangelib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DDF68C1920C0D7009845C8 /* libmelangelib.a */; };
 		B4DDF68F1920C22C009845C8 /* libjpeglib.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DDF68E1920C22C009845C8 /* libjpeglib.a */; };
 		B4DDF6BC1920C88E009845C8 /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B4DDF6BB1920C88E009845C8 /* AppKit.framework */; };
@@ -25,8 +24,6 @@
 		576D5AA21FA734A300DADC10 /* melangeAlienDef.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = melangeAlienDef.cpp; path = source/melange/melangeAlienDef.cpp; sourceTree = SOURCE_ROOT; };
 		576D5AA31FA734A300DADC10 /* melangeMemoryAllocation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = melangeMemoryAllocation.cpp; path = source/melange/melangeMemoryAllocation.cpp; sourceTree = SOURCE_ROOT; };
 		576D5AA71FA734BA00DADC10 /* applicationIdDefinitions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = applicationIdDefinitions.h; path = melange/applicationIdDefinitions.h; sourceTree = SOURCE_ROOT; };
-		576D5AAC1FA741B900DADC10 /* loadAndSaveC4D.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = loadAndSaveC4D.cpp; path = source/loadAndSaveC4D.cpp; sourceTree = "<group>"; };
-		576D5AAD1FA741B900DADC10 /* loadAndSaveC4D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = loadAndSaveC4D.h; path = source/loadAndSaveC4D.h; sourceTree = "<group>"; };
 		8DD76FB20486AB0100D96B5E /* commandline */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = commandline; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4DDF68C1920C0D7009845C8 /* libmelangelib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libmelangelib.a; path = ../../libraries/osx/debug/libmelangelib.a; sourceTree = "<group>"; };
 		B4DDF68E1920C22C009845C8 /* libjpeglib.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjpeglib.a; path = ../../libraries/osx/release/libjpeglib.a; sourceTree = "<group>"; };
@@ -67,8 +64,6 @@
 			isa = PBXGroup;
 			children = (
 				576D5AA01FA7348B00DADC10 /* melange */,
-				576D5AAC1FA741B900DADC10 /* loadAndSaveC4D.cpp */,
-				576D5AAD1FA741B900DADC10 /* loadAndSaveC4D.h */,
 				396271FB0C2A9F6000ADDD97 /* StepToCinema.cpp */,
 				396271FC0C2A9F6000ADDD97 /* StepToCinema.h */,
 			);
@@ -172,7 +167,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				576D5AAE1FA741B900DADC10 /* loadAndSaveC4D.cpp in Sources */,
 				576D5AA51FA734A300DADC10 /* melangeMemoryAllocation.cpp in Sources */,
 				576D5AA41FA734A300DADC10 /* melangeAlienDef.cpp in Sources */,
 				396271FE0C2A9F6000ADDD97 /* StepToCinema.cpp in Sources */,

@@ -9,6 +9,5 @@
 #define STEP_TO_CINEMA_H__
 
 #include "c4d.h"
-#include "melange/melangeAlienDef.h"
 
 #endif // STEP_TO_CINEMA_H__
