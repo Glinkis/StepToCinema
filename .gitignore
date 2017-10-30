@@ -2,4 +2,5 @@
 .vs
 .vscode
 .idea
-.vcxproj.user
+.c4d
+StepToCinema.vcxproj.user

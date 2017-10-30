@@ -2,20 +2,15 @@
 
 using namespace melange;
 
-Bool LoadSaveC4DScene(const char *fn, const char *fnback)
-{
-    return false;
-}
-
 // create objects, material and layers for the new C4D scene file
 Bool BaseDocument::CreateSceneToC4D(Bool selectedonly)
 {
     return false;
 }
 
-//////////////////////////////////////////////////////////////////////////
-// ALIEN ALLOCATION FUNCTIONS
-//////////////////////////////////////////////////////////////////////////
+////////////////////////////////
+// ALIEN ALLOCATION FUNCTIONS //
+////////////////////////////////
 
 // allocate a object/element for the root/list (this is fileformat related, to support/load all objects you should not change this function)
 BaseObject *AlienRootObject::AllocObject(Int32 id)
@@ -87,22 +82,8 @@ NodeData* AllocAlienShaderData(melange::Int32 id, melange::Bool& known)
     return nullptr;
 }
 
-//////////////////////////////////////////////////////////////////////////
-// IMPORT Example
-// the following are the definitions of the "Alien" EXECUTE functions
-//////////////////////////////////////////////////////////////////////////
-
-// this Execute function will be called first after calling CreateSceneFromC4D()
-// e.g. this can be used to handle document informations, units, renderdata or fps as shown below
-
-Bool AlienBaseDocument::Execute()
-{
-    return true;
-}
-
 // Execute function for the self defined Layer
 Bool AlienLayer::Execute()
 {
     return true;
 }
-
